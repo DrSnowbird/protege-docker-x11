@@ -1,0 +1,16 @@
+version: '3' 
+services:
+  docker-nebteans:
+    image: openkbs/protege-docker-x11
+    build:
+      context: ./Dockerfile
+    container_name: protege-docker-x11
+    environment:
+      - USER_ID=${USER_ID:-1100}
+      - GROUP_ID=${GROUP_ID:-1100}
+    env_file:
+      - ./docker.env
+    volumes:
+      - ./.protege-docker-x11:/home/developer/.protege-docker-x11
+      - ./workspace:/home/developer/workspace
+
