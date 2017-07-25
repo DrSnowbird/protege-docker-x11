@@ -3,41 +3,40 @@ FROM openkbs/jre-mvn-py3-x11
 MAINTAINER DrSnowbird "DrSnowbird@openkbs.org"
 
 ## ---- USER_NAME is defined in parent image: openkbs/jre-mvn-py3-x11 already ----
-ENV USER_NAME=${USER_NAME:-developer}
-ENV HOME=/home/${USER_NAME}
+#ENV USER_NAME=${USER_NAME:-developer}
+#ENV HOME=/home/${USER_NAME}
 
 WORKDIR ${HOME}
 RUN git clone https://github.com/protegeproject/protege.git \
     && cd protege \
-    && mvn -Dmaven.test.skip=true clean package 
+    && mvn -Dmaven.test.skip=true clean package
 
-ENV PROTEGE_VERSION=${PROTEGE_VERSION:-5.2.1}
-    
-# protege/protege-desktop/target/protege-5.2.1-SNAPSHOT-platform-independent/Protege-5.2.1-SNAPSHOT
+ARG PROTEGE_VERSION=${PROTEGE_VERSION:-5.2.1}
+ENV PROTEGE_VERSION=${PROTEGE_VERSION}
+
 ENV PROTEGE_HOME=${HOME}/protege-x11
+ENV PROTEGE_PLUGIN=${PROTEGE_HOME}/plugins
+ENV PROTEGE_WORKSPACE=${HOME}/Workspace
+
 WORKDIR ${HOME}/protege
 
-RUN mkdir -p ${HOME}/workspace \
-#    && ln -s ${HOME}/protege/protege-*-SNAPSHOT-platform-independent/Protege-*-SNAPSHOT protege-x11 \
-    && ln -s ${HOME}/protege/protege-desktop/target/protege-5.2.1-SNAPSHOT-platform-independent/Protege-5.2.1-SNAPSHOT ${HOME}/protege-x11 \
-    && ls -al ${HOME}/protege/protege-desktop/target/protege-5.2.1-SNAPSHOT-platform-independent/Protege-5.2.1-SNAPSHOT \
-    && echo "current dir=$PWD" \
-    && echo "PROTEGE_HOME=${PROTEGE_HOME}" \
-    && find ${HOME}/protege-x11 \
-    && ls -al ${HOME}/protege-x11/* \
-    && ls -al /home/developer/protege-x11/run.sh \
-    && env
-    
-RUN apt-get update && apt-get install -y \
-        libx11-6 libxext-dev libxrender-dev libxtst-dev \
-        --no-install-recommends 
-        
-WORKDIR ${PROTEGE_HOME}
+RUN ls -al && echo "PROTEGE_VERSION=${PROTEGE_VERSION}" \
+    && mkdir -p ${PROTEGE_WORKSPACE} \
+    && ln -s ${HOME}/protege/protege-desktop/target/protege-${PROTEGE_VERSION}-SNAPSHOT-platform-independent/Protege-${PROTEGE_VERSION}-SNAPSHOT ${HOME}/protege-x11 \
+    && chown -R ${USER_NAME}:${USER_NAME} ${HOME}/protege \
+    && chown -R ${USER_NAME}:${USER_NAME} ${PROTEGE_HOME}
 
-VOLUME ${HOME}/workspace
-VOLUME ${HOME}/.protege
+## -- Protege Logs --
+VOLUME ${HOME}/.Protege
+
+## -- Protege Workspace
+VOLUME ${PROTEGE_WORKSPACE}
+
+## -- Protege Plugin (to persist across multiple delete and create) --
+VOLUME ${PROTEGE_PLUGIN}
 
 USER ${USER_NAME}
+WORKDIR ${HOME}
 
-CMD "${HOME}/protege-x11/run.sh" "-Djava.awt.headless=true"
+CMD "${HOME}/protege-x11/run.sh"
 

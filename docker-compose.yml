@@ -6,11 +6,13 @@ services:
       context: ./Dockerfile
     container_name: protege-docker-x11
     environment:
-      - USER_ID=${USER_ID:-1100}
-      - GROUP_ID=${GROUP_ID:-1100}
+      - DISPLAY=${DISPLAY:-localhost:0}
+      - USER_ID=${USER_ID:-1000}
+      - GROUP_ID=${GROUP_ID:-1000}
     env_file:
       - ./docker.env
     volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
       - ./.protege-docker-x11:/home/developer/.protege-docker-x11
       - ./workspace:/home/developer/workspace
 

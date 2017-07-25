@@ -6,7 +6,12 @@
 
 imageTag=openkbs/protege-docker-x11
 
+#### ---- Update this version according to the source code's mvn.pom file ---
+
+PROTEGE_VERSION=${PROTEGE_VERSION:-5.2.1}
+
 docker build -t ${imageTag} \
+    --build-arg PROTEGE_VERSION=${PROTEGE_VERSION} \
 	-f Dockerfile .
 
 echo "----> To run in interactive mode: "

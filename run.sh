@@ -28,15 +28,19 @@ function displayPortainerURL() {
 imageTag=${1:-"openkbs/protege-docker-x11"}
 
 PACKAGE=`echo ${imageTag##*/}|tr "/\-: " "_"`
+USER_NAME=${USER_NAME:-developer}
+docker_volume_data1=/home/${USER_NAME}/.Protege
+docker_volume_data2=/home/${USER_NAME}/Workspace
+docker_volume_data3=/home/${USER_NAME}/protege-x11/plugins
 
-docker_volume_data1=/home/developer/.protege
-docker_volume_data2=/home/developer/workspace
-local_docker_data1=${baseDataFolder}/${PACKAGE}/.protege
-local_docker_data2=${baseDataFolder}/${PACKAGE}/workspace
+local_docker_data1=${baseDataFolder}/${PACKAGE}/.Protege
+local_docker_data2=${baseDataFolder}/${PACKAGE}/Workspace
+local_docker_data3=${baseDataFolder}/${PACKAGE}/Plugins
 
 #### ---- local data folders on the host ----
 mkdir -p ${local_docker_data1}
 mkdir -p ${local_docker_data2}
+mkdir -p ${local_docker_data3}
 
 #### ---- ports mapping ----
 docker_port1=
@@ -57,17 +61,15 @@ echo "docker run -d --name ${instanceName} -v ${docker_data}:/${docker_volume_da
 echo "---------------------------------------------"
 echo "---- Starting a Container for ${imageTag}"
 echo "---------------------------------------------"
-export DISPLAY=:0.0 
-#export DISPLAY=${MY_IP}:0.0
-#export DISPLAY=${MY_IP}:0.0
 
-
-docker run -it --rm \
+DISPLAY=${MY_IP}:0 \
+docker run -ti --rm \
     --name=${instanceName} \
     -e DISPLAY=$DISPLAY \
-    -v /tmp/.x11-unix:/tmp/.x11-unix \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v ${local_docker_data1}:${docker_volume_data1} \
     -v ${local_docker_data2}:${docker_volume_data2} \
+    -v ${local_docker_data3}:${docker_volume_data3} \
     ${imageTag} 
     
 echo ">>> Docker Status"
