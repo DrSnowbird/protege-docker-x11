@@ -7,25 +7,25 @@ MAINTAINER DrSnowbird "DrSnowbird@openkbs.org"
 #ENV HOME=/home/${USER_NAME}
 
 WORKDIR ${HOME}
-RUN git clone https://github.com/protegeproject/protege.git \
-    && cd protege \
-    && mvn -Dmaven.test.skip=true clean package
 
+#### ---- Protege ----
 ARG PROTEGE_VERSION=${PROTEGE_VERSION:-5.2.1}
 ENV PROTEGE_VERSION=${PROTEGE_VERSION}
-
 ENV PROTEGE_HOME=${HOME}/protege-x11
 ENV PROTEGE_PLUGIN=${PROTEGE_HOME}/plugins
-ENV PROTEGE_WORKSPACE=${HOME}/Workspace
+ENV PROTEGE_WORKSPACE=${HOME}/workspace-protege
 
-WORKDIR ${HOME}/protege
-
-RUN ls -al && echo "PROTEGE_VERSION=${PROTEGE_VERSION}" \
-    && mkdir -p ${PROTEGE_WORKSPACE} \
+RUN sudo apt-get -y update \
+    && sudo apt-get install graphviz -y \
+    && git clone https://github.com/protegeproject/protege.git \
+    && cd protege \
+    && mvn -Dmaven.test.skip=true clean package \
+    && ls -al && echo "PROTEGE_VERSION=${PROTEGE_VERSION}" \
     && ln -s ${HOME}/protege/protege-desktop/target/protege-${PROTEGE_VERSION}-SNAPSHOT-platform-independent/Protege-${PROTEGE_VERSION}-SNAPSHOT ${HOME}/protege-x11 \
     && chown -R ${USER_NAME}:${USER_NAME} ${HOME}/protege \
-    && chown -R ${USER_NAME}:${USER_NAME} ${PROTEGE_HOME}
-
+    && chown -R ${USER_NAME}:${USER_NAME} ${PROTEGE_HOME} \
+    && mkdir -p ${PROTEGE_WORKSPACE}
+    
 ## -- Protege Logs --
 VOLUME ${HOME}/.Protege
 
@@ -36,7 +36,6 @@ VOLUME ${PROTEGE_WORKSPACE}
 VOLUME ${PROTEGE_PLUGIN}
 
 USER ${USER_NAME}
-WORKDIR ${HOME}
 
 CMD "${HOME}/protege-x11/run.sh"
 

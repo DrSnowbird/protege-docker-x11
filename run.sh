@@ -30,7 +30,7 @@ imageTag=${1:-"openkbs/protege-docker-x11"}
 PACKAGE=`echo ${imageTag##*/}|tr "/\-: " "_"`
 USER_NAME=${USER_NAME:-developer}
 docker_volume_data1=/home/${USER_NAME}/.Protege
-docker_volume_data2=/home/${USER_NAME}/Workspace
+docker_volume_data2=/home/${USER_NAME}/workspace-protege
 docker_volume_data3=/home/${USER_NAME}/protege-x11/plugins
 
 local_docker_data1=${baseDataFolder}/${PACKAGE}/.Protege

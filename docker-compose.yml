@@ -13,6 +13,6 @@ services:
       - ./docker.env
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./.protege-docker-x11:/home/developer/.protege-docker-x11
-      - ./workspace:/home/developer/workspace
-
+      - ${HOME}/data-docker/protege-docker-x11/.Protege:/home/developer/.Protege
+      - ${HOME}/data-docker/protege-docker-x11/Workspace:/home/developer/workspace-protege
+      - ${HOME}/data-docker/protege-docker-x11/Plugin:/home/developer/protege-x11/plugins
