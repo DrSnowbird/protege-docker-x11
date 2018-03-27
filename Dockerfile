@@ -1,4 +1,4 @@
-FROM openkbs/jre-mvn-py3-x11
+FROM openkbs/jdk-mvn-py3-x11
 
 MAINTAINER DrSnowbird "DrSnowbird@openkbs.org"
 
@@ -25,6 +25,9 @@ RUN sudo apt-get -y update \
     && chown -R ${USER_NAME}:${USER_NAME} ${HOME}/protege \
     && chown -R ${USER_NAME}:${USER_NAME} ${PROTEGE_HOME} \
     && mkdir -p ${PROTEGE_WORKSPACE}
+
+RUN mkdir -p ${HOME}/.Protege ${PROTEGE_WORKSPACE} ${PROTEGE_PLUGIN} && \
+    chown -R ${USER_NAME}:${USER_NAME} ${HOME}
     
 ## -- Protege Logs --
 VOLUME ${HOME}/.Protege
