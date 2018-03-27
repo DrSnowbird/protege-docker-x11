@@ -12,17 +12,18 @@ Desktop version Stanford Ontology IDE
 ./run.sh
 ```
 
-# Use
-Three volumes are exposed to host:
-* -- Protege Logs --
-VOLUME ${HOME}/.Protege
+# Volumes (no action needed - automated mapped in run.sh script)
+Three volumes are exposed to host and already defined in "run.sh" script. Hence, you don't need to do anything for the following volumes inside the Docker file and they are mapped to directories under your "$HOME/data-docker/protege_docker_x11".
 
-* -- Protege Workspace --
-VOLUME ${HOME}/Workspace
+* Protege related files including Logs:
+${HOME}/.Protege
 
-* -- Protege Plugin (to persist across multiple delete and create) --
+* Protege Workspace:
+${HOME}/Workspace
+
+* Protege Plugin (to persist across multiple delete and create of Protege Docker container) --
 This is to keep the installed plug-in libraries to be persistent for next restart/re-create of Container.
-VOLUME ${HOME}/protege-x11/plugins
+${HOME}/protege-x11/plugins
 
 # Resources
 * [Protégé](https://protege.stanford.edu/)
