@@ -1,6 +1,7 @@
 # Protégé Desktop Docker running over X11
 [![](https://images.microbadger.com/badges/image/openkbs/protege-docker-x11.svg)](https://microbadger.com/images/openkbs/protege-docker-x11 "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/protege-docker-x11.svg)](https://microbadger.com/images/openkbs/protege-docker-x11 "Get your own version badge on microbadger.com")
-Desktop version Stanford Ontology IDE, Protege.
+Desktop version Stanford Ontology IDE
+* Protege version 5.2.0
 # Build
 ```
 ./build.sh
