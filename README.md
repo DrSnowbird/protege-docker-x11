@@ -37,4 +37,8 @@ ${HOME}/protege-x11/plugins
 # Resources
 * [Protégé](https://protege.stanford.edu/)
 * [Protégé Desktop - source](https://github.com/protegeproject/protege)
+* [WebProtege](https://webprotege.stanford.edu)
+
+# See Also
+* [Web-based Protege Docker by openkbs/docker-webprotege](https://hub.docker.com/r/openkbs/docker-webprotege/)
 
