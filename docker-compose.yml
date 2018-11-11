@@ -3,7 +3,8 @@ services:
   docker-nebteans:
     image: openkbs/protege-docker-x11
     build:
-      context: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     container_name: protege-docker-x11
     environment:
       - DISPLAY=${DISPLAY:-localhost:0}
