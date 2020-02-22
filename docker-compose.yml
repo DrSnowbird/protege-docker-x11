@@ -17,3 +17,8 @@ services:
       - ${HOME}/data-docker/protege-docker-x11/.Protege:/home/developer/.Protege
       - ${HOME}/data-docker/protege-docker-x11/Workspace:/home/developer/workspace-protege
       - ${HOME}/data-docker/protege-docker-x11/Plugin:/home/developer/protege-x11/plugins
+      ## -- Uncomment the following and comment above to use `pwd`
+      ## -- And, create directories using "mkdir -p .Protege Workspace Plugin"
+      #- ${PWD}/.Protege:/home/developer/.Protege
+      #- ${PWD}/Workspace:/home/developer/workspace-protege
+      #- ${PWD}/Plugin:/home/developer/protege-x11/plugins
