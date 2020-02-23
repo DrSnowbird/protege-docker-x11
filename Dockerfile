@@ -69,7 +69,7 @@ RUN tar xvfz $(basename ${PROTEGE_TGZ_URL}) && \
     ls -al ${PROTEGE_HOME} && \
     rm -f $(basename ${PROTEGE_TGZ_URL})
 
-ENV PROTEGE_PLUGIN=${PROTEGE_PLUGIN:-{PROTEGE_HOME}/plugins}
+ENV PROTEGE_PLUGIN=${PROTEGE_PLUGIN:-${PROTEGE_HOME}/plugins}
 ENV PROTEGE_WORKSPACE=${HOME}/workspace-protege
 
 ###########################################################################
