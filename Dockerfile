@@ -75,6 +75,7 @@ ENV PROTEGE_WORKSPACE=${HOME}/workspace-protege
 ###########################################################################
 #### ---- Protege Specifics: Setup                               ---- #####
 ###########################################################################
+RUN sudo apt install -y graphviz
 
 RUN sudo mkdir -p ${HOME}/.Protege ${PROTEGE_WORKSPACE} ${PROTEGE_PLUGIN} 
     
@@ -89,6 +90,7 @@ VOLUME ${PROTEGE_PLUGIN}
 
 USER ${USER_NAME}
 
-CMD CMD ["bash", "-c", "${PROTEGE_HOME}/run.sh"]
-#CMD "${PROTEGE_HOME}/run.sh"
+CMD ["/bin/bash", "-c", "${PROTEGE_HOME}/run.sh"]
 
+# debug
+#CMD "/bin/bash"
