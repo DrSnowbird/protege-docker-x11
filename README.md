@@ -4,12 +4,11 @@ Desktop version Stanford Ontology IDE
 * Protégé version 5.5 (from latest GIT)
 
 # Components
-* java version "1.8.0_181"
-  Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
-  Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
-* Apache Maven 3.5.3
-* Python 3.5.2
-* Other tools: git wget unzip vim python python-setuptools python-dev python-numpy 
+* Protege:
+  * [Protege 5.x](https://github.com/protegeproject/protege)
+* Base Components (e.g., Maven, Java, Python, NodeJS, etc.)
+  * See [openkbs/jdk-mvn-py3](https://github.com/DrSnowbird/jdk-mvn-py3/blob/master/README.md#Components)
+* X11 display desktop
 
 # Run (Recommended for easy starting-up)
 This will setup all the needed host directory to ensure Protégé configurations being persistent for next run.
@@ -43,79 +42,5 @@ ${HOME}/protege-x11/plugins
 * [Web-based Protege Docker by openkbs/docker-webprotege](https://hub.docker.com/r/openkbs/docker-webprotege/)
 
 # Releases
-```
-developer@solar01:~$ /usr/scripts/printVersions.sh 
-+ echo JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-+ java -version
-openjdk version "1.8.0_242"
-OpenJDK Runtime Environment (build 1.8.0_242-8u242-b08-0ubuntu3~18.04-b08)
-OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
-+ mvn --version
-Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
-Maven home: /usr/apache-maven-3.6.3
-Java version: 1.8.0_242, vendor: Private Build, runtime: /usr/lib/jvm/java-8-openjdk-amd64/jre
-Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "5.3.0-42-generic", arch: "amd64", family: "unix"
-+ python -V
-Python 2.7.15+
-+ python3 -V
-Python 3.6.9
-+ pip --version
-pip 20.0.2 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
-+ pip3 --version
-pip 20.0.2 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)
-+ gradle --version
+* See [openkbs/jdk-mvn-py3 Releases](https://github.com/DrSnowbird/jdk-mvn-py3/blob/master/README.md#releases-information)
 
-Welcome to Gradle 6.0.1!
-
-Here are the highlights of this release:
- - Substantial improvements in dependency management, including
-   - Publishing Gradle Module Metadata in addition to pom.xml
-   - Advanced control of transitive versions
-   - Support for optional features and dependencies
-   - Rules to tweak published metadata
- - Support for Java 13
- - Faster incremental Java and Groovy compilation
- - New Zinc compiler for Scala
- - VS2019 support
- - Support for Gradle Enterprise plugin 3.0
-
-For more details see https://docs.gradle.org/6.0.1/release-notes.html
-
-
-------------------------------------------------------------
-Gradle 6.0.1
-------------------------------------------------------------
-
-Build time:   2019-11-18 20:25:01 UTC
-Revision:     fad121066a68c4701acd362daf4287a7c309a0f5
-
-Kotlin:       1.3.50
-Groovy:       2.5.8
-Ant:          Apache Ant(TM) version 1.10.7 compiled on September 1 2019
-JVM:          1.8.0_242 (Private Build 25.242-b08)
-OS:           Linux 5.3.0-42-generic amd64
-
-+ npm -v
-6.13.7
-+ node -v
-v13.9.0
-+ cat /etc/lsb-release /etc/os-release
-DISTRIB_ID=Ubuntu
-DISTRIB_RELEASE=18.04
-DISTRIB_CODENAME=bionic
-DISTRIB_DESCRIPTION="Ubuntu 18.04.2 LTS"
-NAME="Ubuntu"
-VERSION="18.04.2 LTS (Bionic Beaver)"
-ID=ubuntu
-ID_LIKE=debian
-PRETTY_NAME="Ubuntu 18.04.2 LTS"
-VERSION_ID="18.04"
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-VERSION_CODENAME=bionic
-UBUNTU_CODENAME=bionic
-```
