@@ -1,6 +1,6 @@
 version: '3' 
 services:
-  docker-nebteans:
+  protege-docker-x11:
     image: openkbs/protege-docker-x11
     build:
       context: .
@@ -14,11 +14,19 @@ services:
       - ./.env
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ${HOME}/data-docker/protege-docker-x11/.Protege:/home/developer/.Protege
-      - ${HOME}/data-docker/protege-docker-x11/Workspace:/home/developer/workspace-protege
-      - ${HOME}/data-docker/protege-docker-x11/Plugin:/home/developer/protege-x11/plugins
+      - ./.Protege:/home/developer/.Protege
+      - ./plugins:/home/developer/Protege/plugins
+      - ./data:/home/developer/data
+      - ./workspace:/home/developer/workspace
       ## -- Uncomment the following and comment above to use `pwd`
       ## -- And, create directories using "mkdir -p .Protege Workspace Plugin"
       #- ${PWD}/.Protege:/home/developer/.Protege
-      #- ${PWD}/Workspace:/home/developer/workspace-protege
-      #- ${PWD}/Plugin:/home/developer/protege-x11/plugins
+      #- ${PWD}/Plugins:/home/developer/Protege/plugins
+      #- ${PWD}/data:/home/developer/data
+      #- ${PWD}/workspace:/home/developer/workspace
+      ## -- Uncomment the following and comment above to use `${HOME}/....`
+      #- ${HOME}/data-docker/protege-docker-x11/.Protege:/home/developer/.Protege
+      #- ${HOME}/data-docker/protege-docker-x11/plugins:/home/developer/Protege/plugins
+      #- ${HOME}/data-docker/protege-docker-x11/data:/home/developer/data
+      #- ${HOME}/data-docker/protege-docker-x11/workspace:/home/developer/workspace      
+

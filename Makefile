@@ -46,7 +46,7 @@ push: build
 pull:
     docker pull $(DOCKER_REPO)/$(DOCKER):$(VERSION)
 
-up: build
+up:
 	docker-compose up -d
 
 down:
