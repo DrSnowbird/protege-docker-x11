@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE map SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<map MAP_XML_VERSION="1.0">
+  <entry key="DEFAULT_REASONER_ID" value="org.protege.editor.owl.NoOpReasoner"/>
+  <entry key="Disallow_class assertions" value="false"/>
+  <entry key="Disallow_class hierarchy" value="false"/>
+  <entry key="Disallow_data property assertions" value="false"/>
+  <entry key="Disallow_data property hierarchy" value="false"/>
+  <entry key="Disallow_different individuals" value="false"/>
+  <entry key="Disallow_disjoint classes" value="false"/>
+  <entry key="Disallow_object property assertions" value="false"/>
+  <entry key="Disallow_object property hierarchy" value="false"/>
+  <entry key="Disallow_same individuals" value="false"/>
+  <entry key="Require_class assertions" value="false"/>
+  <entry key="Require_class hierarchy" value="false"/>
+  <entry key="Require_data property assertions" value="false"/>
+  <entry key="Require_data property hierarchy" value="false"/>
+  <entry key="Require_different individuals" value="false"/>
+  <entry key="Require_disjoint classes" value="false"/>
+  <entry key="Require_object property assertions" value="false"/>
+  <entry key="Require_object property hierarchy" value="false"/>
+  <entry key="Require_same individuals" value="false"/>
+  <entry key="SHOW_CLASS_UNSATISFIABILITY" value="true"/>
+  <entry key="SHOW_INFERED_CLASS_MEMBERS" value="true"/>
+  <entry key="SHOW_INFERENCES" value="true"/>
+  <entry key="SHOW_INFERRED_DATATYPE_PROPERTY_DOMAINS" value="false"/>
+  <entry key="SHOW_INFERRED_DATA_PROPERTY_ASSERTIONS" value="false"/>
+  <entry key="SHOW_INFERRED_DISJOINT_CLASSES" value="false"/>
+  <entry key="SHOW_INFERRED_EQUIVALENT_CLASSES" value="true"/>
+  <entry key="SHOW_INFERRED_EQUIVALENT_DATATYPE_PROPERTIES" value="true"/>
+  <entry key="SHOW_INFERRED_EQUIVALENT_OBJECT_PROPERTIES" value="true"/>
+  <entry key="SHOW_INFERRED_INVERSE_PROPERTIES" value="true"/>
+  <entry key="SHOW_INFERRED_OBJECT_PROPERTY_ASSERTIONS" value="true"/>
+  <entry key="SHOW_INFERRED_OBJECT_PROPERTY_DOMAINS" value="false"/>
+  <entry key="SHOW_INFERRED_OBJECT_PROPERTY_RANGES" value="false"/>
+  <entry key="SHOW_INFERRED_SAMEAS_INDIVIDUAL_ASSERTIONS" value="true"/>
+  <entry key="SHOW_INFERRED_SUPER_CLASSES" value="true"/>
+  <entry key="SHOW_INFERRED_SUPER_DATATYPE_PROPERTIES" value="true"/>
+  <entry key="SHOW_INFERRED_SUPER_OBJECT_PROPERTIES" value="true"/>
+  <entry key="SHOW_INFERRED_TYPES" value="true"/>
+  <entry key="SHOW_OBJECT_PROPERTY_UNSATISFIABILITY" value="true"/>
+</map>

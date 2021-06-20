@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE map SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<map MAP_XML_VERSION="1.0">
+  <entry key="0" value="org.protege.editor.owl.OWLEntitesTab"/>
+  <entry key="1" value="org.protege.editor.owl.OWLIndividualsTab"/>
+  <entry key="2" value="org.protege.editor.owl.OWLOntologyTab"/>
+  <entry key="listSize" value="3"/>
+</map>

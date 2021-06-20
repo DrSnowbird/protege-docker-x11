@@ -19,9 +19,9 @@ services:
       - ./data:/home/developer/data
       - ./workspace:/home/developer/workspace
       ## -- Uncomment the following and comment above to use `pwd`
-      ## -- And, create directories using "mkdir -p .Protege Workspace Plugin"
+      ## -- And, create directories using "mkdir -p .Protege Workspace plugin"
       #- ${PWD}/.Protege:/home/developer/.Protege
-      #- ${PWD}/Plugins:/home/developer/Protege/plugins
+      #- ${PWD}/plugins:/home/developer/Protege/plugins
       #- ${PWD}/data:/home/developer/data
       #- ${PWD}/workspace:/home/developer/workspace
       ## -- Uncomment the following and comment above to use `${HOME}/....`
