@@ -37,6 +37,7 @@ ${HOME}/protege-x11/plugins
 * [Protégé](https://protege.stanford.edu/)
 * [Protégé Desktop - source](https://github.com/protegeproject/protege)
 * [WebProtege](https://webprotege.stanford.edu)
+* [WebVOWL: Web-based Visualization of Ontologies](http://vowl.visualdataweb.org/webvowl.html)
 
 # See Also
 * [Web-based Protege Docker by openkbs/docker-webprotege](https://hub.docker.com/r/openkbs/docker-webprotege/)

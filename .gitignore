@@ -2,3 +2,8 @@
 .protege*
 Protege*
 
+**.java*/
+*.log*/
+
+**plugins/
+
