@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-VERSION := 1.0.0
+VERSION := latest
 
 DOCKER_REPO := openkbs
 
@@ -34,17 +34,13 @@ clean :
         --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` .
 build:
 	docker build \
-	    --build-arg CIRCLE_SHA1="$(SHA)" \
-	    --build-arg version=$(VERSION) \
-	    --build-arg VCS_REF=`git rev-parse --short HEAD` \
-        --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 	    -t $(DOCKER_REPO)/$(DOCKER):$(VERSION) .
 
 push: build
 	docker push $(DOCKER_REPO)/$(DOCKER):$(VERSION)
 	
 pull:
-    docker pull $(DOCKER_REPO)/$(DOCKER):$(VERSION)
+	docker pull $(DOCKER_REPO)/$(DOCKER):$(VERSION)
 
 up:
 	docker-compose up -d
